@@ -23,6 +23,8 @@ var formatCmd = &cobra.Command{
       fmt.Println("Please enter a python file to be formatted.")
     } else {
 
+      // check for config file
+
       // get file description
 
       // get class

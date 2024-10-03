@@ -6,13 +6,17 @@ package cmd
 
 import (
 	"fmt"
+  "os"
+  "os/user"
+  "path/filepath"
+
 	"github.com/spf13/cobra"
 )
 
 // configCmd represents the config command
 var configCmd = &cobra.Command{
 	Use:   "config",
-	Short: "Configure Student Information",
+	Short: "configure student information",
 	Run: func(cmd *cobra.Command, args []string) {
 
     // Record student info
@@ -31,10 +35,27 @@ var configCmd = &cobra.Command{
     fmt.Scan(&email)
 
     // Save info to config file
+   	usr, err := user.Current()
+    if err != nil {
+      panic(err)
+    }
 
-    fmt.Println(firstname)
-    fmt.Println(lastname)
-    fmt.Println(email)
+    confFile, err := os.Create(filepath.Join(usr.HomeDir, ".pergit.conf"))
+    if err != nil {
+      fmt.Println(err)
+      return
+    }
+
+    confFile.WriteString(fmt.Sprintf("firstname:%s\n", firstname))
+    confFile.WriteString(fmt.Sprintf("lastname:%s\n", lastname))
+    confFile.WriteString(fmt.Sprintf("email:%s\n", email))
+
+    err = confFile.Close()
+
+    if err != nil {
+      fmt.Println(err)
+      return
+    }
 	},
 }
 
