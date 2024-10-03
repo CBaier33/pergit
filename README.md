@@ -15,15 +15,15 @@ Usage:
   pergit [command]
 
 Available Commands:
-  addheader   Insert source file header.
-  completion  Generate the autocompletion script for the specified shell
-  config      Configure student info
-  help        Help about any command
-  score       Recommended changes to match programming style guide
+addheader   Insert source file header.
+completion  Generate the autocompletion script for the specified shell
+config      Configure student info
+help        Help about any command
+score       Recommended changes to match programming style guide
 
 Flags:
-  -h, --help     help for pergit
-  -t, --toggle   Help message for toggle
+\-h, --help     help for pergit
+\-t, --toggle   Help message for toggle
 
 Use "pergit [command] --help" for more information about a command.
 
