@@ -17,5 +17,5 @@
 #*******************************************************************************
 def increment(x: int) -> int:
     return x+1
-def decrement(y) -> int:
+def decrement(y: int, x: int):
     return y-1

@@ -43,7 +43,7 @@ var scoreCmd = &cobra.Command{
     headerCheck := false
     typeCheck := false
 
-    functionsRe := regexp.MustCompile(`def\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(`)
+    functionsRe := regexp.MustCompile(`def\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(.*`)
     functions := functionsRe.FindAllStringSubmatch(code, -1)
 
     if (len(functions) < 2) {
@@ -59,8 +59,14 @@ var scoreCmd = &cobra.Command{
       }
     }
 
-    sigsRe := regexp.MustCompile(`def\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(.*?\)\s*:\s*([^->]|->\s*$)`)
-    missingFuncs := sigsRe.FindAllStringSubmatch(code, -1)
+    sigsRe := regexp.MustCompile(`^def\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(((?:[a-zA-Z_][a-zA-Z0-9_]*:\s*[a-zA-Z_][a-zA-Z0-9_]*\s*,?\s*)*)?\)\s*->\s+[a-zA-Z_][a-zA-Z0-9_]*:\s*$`)
+    missingFuncs := []string{}
+
+    for _, function := range functions {
+      if !(sigsRe.MatchString(function[0])){
+        missingFuncs = append(missingFuncs, function[1])
+      }
+    }
 
     if len(missingFuncs) < 1 {
       fmt.Println("All functions contain type signatures.")
@@ -68,7 +74,7 @@ var scoreCmd = &cobra.Command{
     } else {
       fmt.Println("The following functions are missing type signatures:")
       for _, function := range missingFuncs {
-        fmt.Println("  -", function[1])
+        fmt.Println("  -", function)
       }
     }
 
