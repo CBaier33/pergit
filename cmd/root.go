@@ -15,7 +15,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "pergit",
-	Short: "A CLI tool for formatting source code for class assignments",
+	Short: "A CLI tool for formatting source code for class assignments.",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
