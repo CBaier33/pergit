@@ -63,7 +63,7 @@ var scoreCmd = &cobra.Command{
     missingFuncs := sigsRe.FindAllStringSubmatch(code, -1)
 
     if len(missingFuncs) < 1 {
-      fmt.Println("All functions match the programming style guide.")
+      fmt.Println("All functions contain type signatures.")
       typeCheck = true
     } else {
       fmt.Println("The following functions are missing type signatures:")
