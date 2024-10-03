@@ -21,6 +21,10 @@ var scoreCmd = &cobra.Command{
       fmt.Println("Please enter a python file to be scored.")
     }
     // Check for type annotations
+    
+    // loop through file, count "def"s and store name of the function if it does not contain ->
+    
+    // how to verify type annotations??? even just the presence
 
     // Check for presence of header (needed if there is more than one function def)
 	},
