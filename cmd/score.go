@@ -4,12 +4,12 @@ Copyright © 2024 Christopher Baier
 package cmd
 
 import (
-	"fmt"
-	"os"
+  "fmt"
+  "os"
   "io"
   "regexp"
-
-	"github.com/spf13/cobra"
+  
+  "github.com/spf13/cobra"
 )
 
 // scoreCmd represents the score command

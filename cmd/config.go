@@ -5,15 +5,15 @@ Copyright © 2024 Christopher Baier
 package cmd
 
 import (
-	"fmt"
+  "fmt"
   "os"
   "os/user"
   "path/filepath"
   "bufio"
-
+  
   "encoding/json"
-
-	"github.com/spf13/cobra"
+  
+  "github.com/spf13/cobra"
 )
 
 // configCmd represents the config command

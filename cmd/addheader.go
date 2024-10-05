@@ -4,21 +4,21 @@ Copyright © 2024 Christopher Baier
 package cmd
 
 import (
-	"fmt"
-	"strings"
+  "fmt"
+  "strings"
   "os"
   "os/user"
   "path/filepath"
   "encoding/json"
   "bufio"
-
-	"github.com/spf13/cobra"
+  
+  "github.com/spf13/cobra"
 )
 
 // addheaderCmd represents the format command
 var addheaderCmd = &cobra.Command{
 	Use:   "addheader",
-	Short: "Insert source file header.",
+	Short: "Insert source file header",
 	Run: func(cmd *cobra.Command, args []string) {
 
     // initial checks

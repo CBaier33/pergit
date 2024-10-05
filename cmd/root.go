@@ -5,9 +5,9 @@ Copyright © 2024 Christopher Baier
 package cmd
 
 import (
-	"os"
+  "os"
 
-	"github.com/spf13/cobra"
+  "github.com/spf13/cobra"
 )
 
 
@@ -28,7 +28,7 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	//rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 
